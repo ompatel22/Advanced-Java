@@ -9,7 +9,6 @@ public class JDBC_Connection {
     static ResultSet rs=null;
     static Connection con=null;
     static Statement st=null;
-
     //methods
     public static void setDatabaseDetails(String db,String user,String pass){
         dbname=db; username=user; password=pass;
@@ -19,7 +18,7 @@ public class JDBC_Connection {
         try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/"+dbname, username, password);
-            //System.out.println("Connected to the PostgreSQL server successfully.");
+            System.out.println("Connected to the PostgreSQL server successfully.");
             st = con.createStatement();
             rs = st.executeQuery(query);
         }
@@ -42,7 +41,7 @@ public class JDBC_Connection {
 
     public static void main(String[] args){
         try{
-            String query = "SELECT id, name FROM studentinfo";
+            String query = "SELECT id, name FROM studentinfo where name='om'";
             setDatabaseDetails("studentdemo","postgres","postgres");
             ResultSet rs=getResult(query);
 
