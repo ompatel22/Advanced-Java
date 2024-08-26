@@ -1,2 +1,2 @@
 # Advanced-Java
-Advanced Java concepts implementation.
+Advanced Java concepts implementation
